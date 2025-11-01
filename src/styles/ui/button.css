@@ -1,0 +1,168 @@
+/* ---------- Base ----------- */
+.button {
+  /* use flex so gap works */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+  border: 1px solid transparent;
+
+  /* themable tokens per button */
+  --btn-bg: rgba(0,0,0,.2);
+  --btn-text: hsl(var(--text));
+  --btn-border: hsl(var(--border));
+  --btn-bg-hover: color-mix(in hsl, var(--btn-bg), white 6%);
+  --btn-bg-active: color-mix(in hsl, var(--btn-bg), black 6%);
+  --btn-shadow: 0 1px 0 rgba(0,0,0,.04);
+
+    word-wrap: nowrap;
+    text-wrap: keep-all;
+
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-color: var(--btn-border);
+  box-shadow: var(--btn-shadow);
+
+  transition: background .15s ease, color .15s ease,
+              border-color .15s ease, transform .05s ease;
+}
+
+.button:hover   { background: var(--btn-bg-hover); }
+.button:active  { background: var(--btn-bg-active); }
+.button:focus-visible {
+  outline: 2px solid hsl(var(--accent) / .5);
+  outline-offset: 2px;
+}
+
+/* ---------- Sizes (keep yours) ---------- */
+.s.button  { padding: 8px 12px;  font-size: 12px; }
+.m.button  { padding: 10px 16px; font-size: 16px; }
+.l.button  { padding: 13px 20px; font-size: 18px; }
+.xl.button { padding: 15px 24px; font-size: 20px; font-weight: 700; }
+
+/* ---------- Variants ---------- */
+
+/* Primary: solid accent */
+.primary.button {
+  --btn-bg: hsl(var(--accent));
+  --btn-text: hsl(0 0% 0%); /* readable on gold */
+  --btn-border: hsl(var(--accent));
+  --btn-bg-hover: color-mix(in hsl, hsl(var(--accent)), black 8%);
+  --btn-bg-active: color-mix(in hsl, hsl(var(--accent)), black 16%);
+}
+
+/* Secondary: solid brand */
+.secondary.button {
+  --btn-bg: hsl(var(--brand));
+  --btn-text: hsl(0 0% 98%);
+  --btn-border: hsl(var(--brand));
+  --btn-bg-hover: color-mix(in hsl, hsl(var(--brand)), white 8%);
+  --btn-bg-active: color-mix(in hsl, hsl(var(--brand)), black 10%);
+}
+
+/* Danger: brand-2 red */
+.danger.button {
+  --btn-bg: hsl(var(--brand-2));
+  --btn-text: hsl(0 0% 98%);
+  --btn-border: hsl(var(--brand-2));
+  --btn-bg-hover: color-mix(in hsl, hsl(var(--brand-2)), black 8%);
+  --btn-bg-active: color-mix(in hsl, hsl(var(--brand-2)), black 16%);
+}
+
+/* Outline: bordered, transparent bg */
+.outline.button {
+  --btn-bg: transparent;
+  --btn-text: hsl(var(--text));
+  --btn-border: hsl(var(--border));
+  --btn-bg-hover: hsl(var(--card));
+  --btn-bg-active: color-mix(in hsl, hsl(var(--card)), black 6%);
+}
+
+/* Ghost: text only with subtle hover */
+.ghost.button {
+  --btn-bg: transparent;
+  --btn-text: hsl(var(--text));
+  --btn-border: transparent;
+  --btn-bg-hover: hsl(var(--card) / .6);
+  --btn-bg-active: hsl(var(--card) / .8);
+  box-shadow: none;
+}
+
+/* Tonal: soft background using accent as tint */
+.tonal.button {
+  --btn-bg: hsl(var(--accent) / .16);
+  --btn-text: hsl(var(--text));
+  --btn-border: hsl(var(--accent) / .24);
+  --btn-bg-hover: hsl(var(--accent) / .22);
+  --btn-bg-active: hsl(var(--accent) / .28);
+}
+
+/* Link: looks like a link */
+.link.button {
+  --btn-bg: transparent;
+  --btn-text: hsl(var(--brand-2));
+  --btn-border: transparent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0; /* ignore size padding */
+  box-shadow: none;
+}
+.link.button:hover { text-decoration-thickness: 2px; }
+
+/* ---------- States ---------- */
+.button[disabled],
+.button.is-disabled {
+  opacity: .55;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* Loading spinner helper */
+.button.is-loading {
+  position: relative;
+}
+.button.is-loading::after {
+  content: "";
+  width: 1em; height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  display: inline-block;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Shapes ---------- */
+.pill.button   { border-radius: 999px; }
+.square.button, .circle.button { aspect-ratio: 1 / 1; padding: 0; }
+.circle.button { border-radius: 50%; }
+
+.s.circle.button, .s.square.button {
+  width: 24px;
+}
+.m.circle.button, .m.square.button {
+  width: 36px;
+}
+.l.circle.button, .l.square.button {
+  width: 48px;
+}
+.xl.circle.button, .xl.square.butto {
+  width: 64px;
+}
+
+/* ---------- Icon alignment ---------- */
+.button .icon { display: inline-flex; }
+.icon-left  { margin-right: 6px; }
+.icon-right { margin-left: 6px; }
+
+/* ---------- Full width ---------- */
+.block.button { width: 100%; }
+
+/* ---------- High-contrast focus for keyboard users only ---------- */
+@media (hover: none) {
+  .button:hover { background: var(--btn-bg); }
+}

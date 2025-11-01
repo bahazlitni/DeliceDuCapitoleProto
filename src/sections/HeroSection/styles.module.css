@@ -1,0 +1,95 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow: var(--shadow-2);
+  isolation: isolate;
+}
+
+/* Background stack: base < overlay < scrim < content */
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* REMOVE the old .layer usage (no longer needed) */
+/* .layer { ... } */
+
+/* Each image fills the stage (used by BOTH base and overlay <img>) */
+.cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-position: center;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Optional helper if you want a class on the fading image */
+.overlay {
+  will-change: opacity;
+}
+
+/* Scrim should sit above images, below content */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55));
+}
+
+/* Foreground content */
+.content {
+  position: relative;
+  z-index: 2;
+  inset: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 64px);
+}
+
+/* Text block */
+.text {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 1.2rem + 4vw, 4rem);
+  line-height: var(--lh-tight);
+}
+
+.subtitle {
+  margin: var(--space-3) 0 0;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 0.6rem + 1.4vw, 1.4rem);
+  letter-spacing: .12em;
+}
+
+/* CTA row */
+.buttons {
+  margin-top: var(--space-10);
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Light text option */
+.invert .title, .invert .subtitle { color: white; }

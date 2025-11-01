@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+  column-gap: var(--space-8);
+  width: 100%;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}

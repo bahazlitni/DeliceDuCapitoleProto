@@ -1,0 +1,82 @@
+.footer {
+  background: hsl(var(--card));
+  border-top: var(--border-w) solid hsl(var(--border));
+  color: hsl(var(--text));
+  padding-block: clamp(32px, 6vw, 56px);
+  width: 100%;
+}
+
+.wrap {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Links */
+.links {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 720px) {
+  .links {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list a {
+  text-decoration: none;
+  color: hsl(var(--text));
+  font-size: var(--fs-1);
+  line-height: var(--lh-m);
+  padding: 4px 0;
+  position: relative;
+}
+
+.list a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: hsl(var(--border));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-1) var(--ease), background var(--dur-1) var(--ease);
+}
+
+.list a:hover::after {
+  transform: scaleX(1);
+  background: hsl(var(--accent));
+}
+
+/* Divider */
+.hr {
+  height: 1px;
+  border: 0;
+  background: hsl(var(--border));
+  margin: var(--space-2) 0 0;
+}
+
+/* Bottom row */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.copy {
+  color: hsl(var(--muted));
+  font-size: var(--fs-0);
+  margin: 0;
+  max-width: var(--content);
+}

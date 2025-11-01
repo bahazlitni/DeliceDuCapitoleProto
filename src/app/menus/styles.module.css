@@ -1,0 +1,7 @@
+.scrollArea {
+  overflow: auto;
+  height: 100%;
+  scroll-behavior: smooth;
+  /* Optional: momentum on iOS */
+  -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,141 @@
+/* ===============================
+   Category cards (Nos Menus)
+   =============================== */
+
+/* --- Grid layout --- */
+.menu-grid.big {
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: var(--container);
+}
+@media (min-width: 1280px) {
+  .menu-grid.big {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- Card wrapper --- */
+.menu-cat-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: 0;
+  transition: transform var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease);
+}
+.menu-cat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3), 0 0 0 3px hsl(var(--accent)/0.25);
+}
+
+/* --- Link covers entire card --- */
+.menu-cat-link {
+  display: block;
+  position: relative;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* --- Card structure --- */
+.menu-cat-inner {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+/* --- Thumbnail (image) --- */
+.menu-cat-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  aspect-ratio: 4 / 3;
+}
+.menu-cat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-2) var(--ease), filter var(--dur-2) var(--ease);
+}
+.menu-cat-card:hover .menu-cat-img {
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+/* --- Text area --- */
+.menu-cat-body {
+  padding: var(--space-6);
+  background: hsl(var(--surface));
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--dur-2) var(--ease);
+}
+.menu-cat-card:hover .menu-cat-body {
+  background: linear-gradient(180deg, hsl(var(--surface-2)), hsl(var(--surface)));
+}
+
+/* --- Animated text motion --- */
+.menu-cat-body h3 {
+  font-size: var(--fs-4);
+  margin-bottom: var(--space-2);
+  transition: transform var(--dur-2) var(--ease);
+}
+.menu-cat-body p {
+  font-size: var(--fs-1);
+  color: hsl(var(--muted));
+  transition: transform var(--dur-2) var(--ease);
+}
+.menu-cat-card:hover .menu-cat-body h3,
+.menu-cat-card:hover .menu-cat-body p {
+  transform: translateY(-6px);
+}
+
+/* --- Optional image lighting (for extra depth) --- */
+.menu-cat-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, hsl(var(--overlay) / 0.25), transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease);
+}
+.menu-cat-card:hover .menu-cat-thumb::after {
+  opacity: 1;
+}
+
+
+/* ---------- Text transition alignment ---------- */
+.menu-cat-text-wrapper {
+  position: relative;
+  height: 1.5em; /* ensures stable height for the text swap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  overflow: visible;
+}
+
+.menu-cat-desc,
+.menu-cat-hover-desc {
+  font-size: var(--fs-1);
+  color: hsl(var(--muted));
+  margin: 0;
+  text-align: center;
+  line-height: var(--lh-m);
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: opacity var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
+}

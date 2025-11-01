@@ -1,0 +1,32 @@
+.grid {
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 1000px){
+  .grid { grid-template-columns: 1fr 1.2fr; }
+}
+
+.card {
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-2);
+  padding: var(--space-6);
+}
+
+.details {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  margin: var(--space-5) 0;
+}
+@media (min-width: 520px){
+  .details { grid-template-columns: 1fr 1fr; }
+}
+.mapWrap {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+}

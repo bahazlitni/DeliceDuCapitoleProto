@@ -1,0 +1,86 @@
+/* ========== Simple Card (stable; no container-unit feedback) ========== */
+
+.simple-card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  cursor: pointer;
+
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--card-radius, var(--radius-m));
+  background: hsl(var(--card));
+  box-shadow: var(--shadow-1);
+
+  width: var(--card-w, auto);
+  aspect-ratio: 4 / 3;
+
+  transition:
+    transform var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    outline-color var(--dur-2) var(--ease);
+  will-change: transform;
+  contain: layout paint;
+}
+
+/* Media area */
+.simple-card .image-wrapper,
+.simple-card .image-wrapper img { width: 100%; display: block; }
+.simple-card .image-wrapper { flex: 1 1 auto; overflow: hidden; }
+.simple-card .image-wrapper img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-2) var(--ease);
+  transform-origin: center center;
+}
+
+/* Title */
+.simple-card h1 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: hsl(var(--card));
+  position: relative;
+
+  font-size: var(--title-fs, var(--fs-2));
+  line-height: var(--lh-tight);
+  height: var(--title-h, calc(var(--title-fs, 18px) * 2.6));
+}
+
+/* Fixed sizes */
+.s.simple-card { --card-w: 240px; --card-radius: var(--radius-s);  --title-fs: 14px; }
+.m.simple-card { --card-w: 280px; --card-radius: var(--radius-m);  --title-fs: 18px; }
+.l.simple-card { --card-w: 320px; --card-radius: var(--radius-l);  --title-fs: 24px; }
+.xl.simple-card{ --card-w: 360px; --card-radius: var(--radius-xl); --title-fs: 32px; }
+
+/* Auto: the wrapper li provides width/height; card fills it */
+.auto.simple-card {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+
+    --title-fs: clamp(14px, 0.9rem + 0.6vw, 32px);
+    --title-h: clamp(36px, calc(var(--title-fs) * 2.6), 80px);
+}
+
+/* Hover/focus (no scale on the card) */
+@media (hover: hover) and (pointer: fine) {
+  .simple-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-3);
+    border-color: hsl(var(--accent));
+  }
+  .simple-card:hover .image-wrapper img { transform: scale(1.02); }
+}
+.simple-card:active { transform: translateY(0); }
+.simple-card:focus-visible {
+  outline: var(--ring-w) solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-color: hsl(var(--accent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simple-card,
+  .simple-card .image-wrapper img { transition: none; }
+}

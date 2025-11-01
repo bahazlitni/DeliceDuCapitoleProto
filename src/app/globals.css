@@ -1,0 +1,408 @@
+:root {
+  /* Brand palette (yours, kept) */
+  --brand:        210 18% 12%;   /* dark slate */
+  --brand-2:      0 72% 42%;     /* warm red (danger) */
+  --accent:       43 75% 54%;    /* gold highlight */
+  --bg:           40 20% 97%;    /* off-white */
+  --text:         222 18% 15%;
+
+  /* UI neutrals */
+  --muted:        220 9% 46%;
+  --card:         0 0% 100%;
+  --border:       0 0% 90%;
+
+  /* Semantic roles (derived) */
+  --surface:        var(--card);
+  --surface-2:      0 0% 98%;
+  --surface-3:      0 0% 96%;
+  --subtle:         210 10% 92%;
+  --overlay:        0 0% 0%;
+
+  --info:           210 90% 45%;
+  --success:        142 50% 36%;
+  --warning:        38 92% 50%;
+  --danger:         var(--brand-2);
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-serif: ui-serif, "Georgia", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Fluid type scale (clamp for responsiveness) */
+  --fs-0: clamp(0.78rem, 0.74rem + 0.2vw, 0.88rem);   /* caption */
+  --fs-1: clamp(0.88rem, 0.84rem + 0.25vw, 1.00rem);  /* body */
+  --fs-2: clamp(1.00rem, 0.96rem + 0.3vw, 1.125rem);  /* lead */
+  --fs-3: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);     /* h5 */
+  --fs-4: clamp(1.5rem, 1.25rem + 1.2vw, 1.875rem);   /* h4 */
+  --fs-5: clamp(1.875rem, 1.5rem + 1.6vw, 2.25rem);   /* h3 */
+  --fs-6: clamp(2.25rem, 1.9rem + 2.2vw, 3rem);       /* h2 */
+  --fs-7: clamp(2.75rem, 2.2rem + 3vw, 3.75rem);      /* hero */
+
+  --lh-tight: 1.15;
+  --lh-s: 1.25;
+  --lh-m: 1.5;
+
+  /* Spacing scale (8px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 56px;
+  --space-10: 72px;
+
+  /* Radii */
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows (elevation) */
+  --shadow-1: 0 1px 2px hsl(0 0% 0% / 0.06);
+  --shadow-2: 0 2px 8px hsl(0 0% 0% / 0.08);
+  --shadow-3: 0 6px 18px hsl(0 0% 0% / 0.12);
+  --shadow-4: 0 12px 28px hsl(0 0% 0% / 0.16);
+
+  /* Borders */
+  --border-w: 1px;
+  --ring-w: 2px;
+
+  /* Transitions */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+
+  /* Layout */
+  --container: 1200px;
+  --content: 80ch;
+  --gutter: var(--space-6);
+
+  /* Z indices */
+  --z-base: 1;
+  --z-sticky: 10;
+  --z-popover: 20;
+  --z-modal: 30;
+  --z-toast: 40;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:     210 18% 8%;
+    --text:   0 0% 98%;
+    --card:   210 18% 10%;
+    --border: 210 12% 20%;
+    --surface-2: 210 14% 12%;
+    --surface-3: 210 12% 14%;
+    --subtle:    210 10% 16%;
+    --overlay:   0 0% 0%;
+    --shadow-1:  0 1px 2px hsl(0 0% 0% / 0.35);
+    --shadow-2:  0 2px 8px hsl(0 0% 0% / 0.45);
+    --shadow-3:  0 6px 18px hsl(0 0% 0% / 0.55);
+    --shadow-4:  0 12px 28px hsl(0 0% 0% / 0.65);
+  }
+}
+
+/* ---------- 2) Modern reset ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within { scroll-behavior: smooth; }
+html, body { 
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: hsl(var(--bg));
+  color: hsl(var(--text));
+  font-family: var(--font-sans);
+  font-size: var(--fs-1);
+  line-height: var(--lh-m);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  height: fit-content;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+section {
+  padding-block: clamp(48px, 7vw, 96px);
+  border-top: var(--border-w) solid hsl(var(--border));
+}
+
+
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; color: hsl(var(--text)); }
+
+ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- 3) Base typography ---------- */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--space-4);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.0125em;
+}
+h1 { font-size: var(--fs-7); }
+h2 { font-size: var(--fs-6); }
+h3 { font-size: var(--fs-5); }
+h4 { font-size: var(--fs-4); }
+h5 { font-size: var(--fs-3); }
+h6 { font-size: var(--fs-2); }
+
+p { margin: 0 0 var(--space-4); }
+small, .text-xs { font-size: var(--fs-0); color: hsl(var(--muted)); }
+.lead { font-size: var(--fs-2); color: hsl(var(--muted)); max-width: var(--content); }
+
+/* Restaurant-friendly serif accents for dish titles */
+.emph-serif { font-family: var(--font-serif); letter-spacing: 0.005em; }
+
+/* Focus ring */
+:where(button, [href], input, select, textarea):focus-visible {
+  outline: var(--ring-w) solid hsl(var(--accent) / .55);
+  outline-offset: 2px;
+}
+
+/* ---------- 4) Layout helpers ---------- */
+.container {
+  width: min(100% - 2*var(--gutter), var(--container));
+  margin-inline: auto;
+}
+.content { max-width: var(--content); }
+
+.stack > * + * { margin-top: var(--space-4); }             /* vertical rhythm */
+.cluster { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.grid { display: grid; gap: var(--space-6); }
+.grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid.auto-fit { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+.center { display: grid; place-items: center; }
+.hidden { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.surface {
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-1);
+}
+.card {
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-2);
+  padding: var(--space-6);
+}
+.card.hoverable { transition: transform var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease); }
+.card.hoverable:hover { transform: translateY(-2px); box-shadow: var(--shadow-3); }
+
+/* Hero banner (top of homepage) */
+.hero {
+  background: radial-gradient(1200px 600px at 10% -10%, hsl(var(--accent)/.25), transparent 60%),
+              linear-gradient(0deg, hsl(var(--card)), hsl(var(--card)));
+  border-bottom: var(--border-w) solid hsl(var(--border));
+  padding-block: clamp(64px, 8vw, 128px);
+}
+
+/* ---------- 6) Navigation ---------- */
+.navbar {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: hsl(var(--card) / .85);
+  backdrop-filter: saturate(1.2) blur(10px);
+  border-bottom: var(--border-w) solid hsl(var(--border));
+}
+.navbar .inner { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
+.navbar a { text-decoration: none; color: hsl(var(--text)); }
+.navbar .menu { display: flex; gap: var(--space-5); align-items: center; }
+
+/* ---------- 7) Buttons (tokens only; your component CSS can use these) ---------- */
+:root {
+  --btn-radius: var(--radius-m);
+  --btn-pad-y: 12px;
+  --btn-pad-x: 16px;
+
+  --btn-primary-bg:  hsl(var(--accent));
+  --btn-primary-fg:  hsl(0 0% 0%);
+  --btn-secondary-bg:hsl(var(--brand));
+  --btn-secondary-fg:hsl(0 0% 98%);
+  --btn-danger-bg:   hsl(var(--danger));
+  --btn-danger-fg:   hsl(0 0% 98%);
+  --btn-ghost-fg:    hsl(var(--text));
+  --btn-outline-bd:  hsl(var(--border));
+}
+
+/* Basic button style in case you want a minimal default */
+button,
+.button-reset {
+  border: 0;
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* ---------- 8) Forms ---------- */
+.input,
+select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+input[type="date"],
+input[type="time"] {
+  width: 100%;
+  padding: 12px 14px;
+  background: hsl(var(--surface));
+  color: hsl(var(--text));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-1) inset;
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+
+.input:focus,
+select:focus,
+textarea:focus,
+input:focus {
+  border-color: hsl(var(--accent));
+  box-shadow: 0 0 0 4px hsl(var(--accent)/.2);
+  outline: none;
+}
+
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+.help { color: hsl(var(--muted)); font-size: var(--fs-0); margin-top: 6px; }
+
+.input--error { border-color: hsl(var(--danger)); }
+.help--error { color: hsl(var(--danger)); }
+
+/* ---------- 9) Tables (for menus or bookings) ---------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.table th, .table td {
+  padding: 12px 16px;
+  border-bottom: var(--border-w) solid hsl(var(--border));
+  text-align: left;
+}
+.table thead th {
+  background: hsl(var(--surface-2));
+  font-weight: 700;
+}
+.table tbody tr:hover { background: hsl(var(--surface-3)); }
+
+/* ---------- 10) Badges & chips ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: var(--radius-pill);
+  font-size: var(--fs-0); font-weight: 600;
+  background: hsl(var(--subtle));
+  color: hsl(var(--brand));
+}
+.badge--success { background: hsl(var(--success)/.18); color: hsl(var(--success)); }
+.badge--warning { background: hsl(var(--warning)/.2); color: hsl(var(--warning)); }
+.badge--danger  { background: hsl(var(--danger)/.2);  color: hsl(var(--danger)); }
+
+/* ---------- 11) Toasts / alerts ---------- */
+.alert {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-m);
+  border: var(--border-w) solid hsl(var(--border));
+  background: hsl(var(--surface));
+}
+.alert--info    { border-color: hsl(var(--info));    background: hsl(var(--info)/.08);    color: hsl(var(--info)); }
+.alert--success { border-color: hsl(var(--success)); background: hsl(var(--success)/.08); color: hsl(var(--success)); }
+.alert--warn    { border-color: hsl(var(--warning)); background: hsl(var(--warning)/.1);  color: hsl(var(--warning)); }
+.alert--danger  { border-color: hsl(var(--danger));  background: hsl(var(--danger)/.1);   color: hsl(var(--danger)); }
+
+/* ---------- 12) Footer ---------- */
+.footer {
+  background: hsl(var(--card));
+  border-top: var(--border-w) solid hsl(var(--border));
+  padding-block: clamp(32px, 6vw, 64px);
+  color: hsl(var(--muted));
+}
+.footer a { color: hsl(var(--text)); }
+
+/* ---------- 13) Media helpers ---------- */
+.responsive-media { position: relative; overflow: hidden; border-radius: var(--radius-l); }
+.responsive-media > iframe,
+.responsive-media > img { width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+
+/* ---------- 14) Restaurant-specific helpers ---------- */
+/* Menu grid: dish card layout */
+.menu-grid { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.dish-card {
+  display: grid; grid-template-rows: auto 1fr auto; gap: var(--space-3);
+  padding: var(--space-5);
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-2);
+}
+.dish-card .price { font-weight: 700; color: hsl(var(--brand)); }
+.dish-card .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Reservation strip */
+.book-strip {
+  display: grid; gap: var(--space-4);
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: var(--space-6);
+  border-radius: var(--radius-l);
+  background: linear-gradient(90deg, hsl(var(--accent)/.18), hsl(var(--card)));
+  border: var(--border-w) solid hsl(var(--border));
+}
+
+/* ---------- 15) Utilities ---------- */
+.mt-0{margin-top:0}.mb-0{margin-bottom:0}
+.mt-1{margin-top:var(--space-2)}.mb-1{margin-bottom:var(--space-2)}
+.mt-2{margin-top:var(--space-3)}.mb-2{margin-bottom:var(--space-3)}
+.mt-3{margin-top:var(--space-4)}.mb-3{margin-bottom:var(--space-4)}
+.mt-4{margin-top:var(--space-6)}.mb-4{margin-bottom:var(--space-6)}
+
+.pad-1{padding:var(--space-3)}.pad-2{padding:var(--space-4)}.pad-3{padding:var(--space-6)}
+.round-s{border-radius:var(--radius-s)}.round-m{border-radius:var(--radius-m)}.round-l{border-radius:var(--radius-l)}
+
+.text-muted{color:hsl(var(--muted))}
+.text-brand{color:hsl(var(--brand))}
+.text-accent{color:hsl(var(--accent))}
+.bg-card{background:hsl(var(--card))}
+.bg-surface{background:hsl(var(--surface))}
+.border{border:var(--border-w) solid hsl(var(--border))}
+.shadow-1{box-shadow:var(--shadow-1)}.shadow-2{box-shadow:var(--shadow-2)}.shadow-3{box-shadow:var(--shadow-3)}
+
+.max-content{max-width:var(--content)}

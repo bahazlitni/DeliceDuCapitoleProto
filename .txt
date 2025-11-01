@@ -1,0 +1,97 @@
+[ ] Menu Enfants, 06.50 EUR, Cheese Burger
+[ ] Menu Enfants, 06.50 EUR, Nuggets
+[ ] Menu Enfants, 06.50 EUR, Assiette Kebab
+[ ] Grillade    , 13.50 EUR, Escalopes de Poulet
+[x] Grillade    , 13.50 EUR, Brochettes de Veau
+[ ] Grillade    , 13.50 EUR, Brochettes de Poulet
+[ ] Grillade    , 14.50 EUR, Mixte
+[ ] Grillade    , 14.50 EUR, Entrecote
+[ ] Grillade    , 14.50 EUR, Cotes D'agneau
+[ ] Assiette    , 11.00 EUR, Kebab
+[x] Assiette    , 11.00 EUR, Chicken
+[ ] Assiette    , 11.00 EUR, Steak Hache
+[ ] Assiette    , 11.00 EUR, Kefta
+[ ] Assiette    , 11.00 EUR, Falafel
+[ ] Assiette    , 11.00 EUR, Merguez
+[ ] Sandwich    , 07.50 EUR, Pain Naan
+[ ] Sandwich    , 07.50 EUR, Pain Turc
+[ ] Sandwich    , 07.50 EUR, Galette
+[x] Sandwich    , 07.50 EUR, Baguette
+[ ] Burger      , 06.00 EUR, Double Kefta
+[ ] Burger      , 06.00 EUR, Fish
+[ ] Burger      , 06.00 EUR, Chicken
+[x] Burger      , 06.00 EUR, Double Cheese
+[ ] Panini      , 05.50 EUR, 4 Fromages
+[ ] Panini      , 05.50 EUR, Tomates Mozza
+[ ] Panini      , 05.50 EUR, Chevre Miel
+[ ] Panini      , 05.50 EUR, Jambon
+[ ] Panini      , 05.50 EUR, Saumon
+[ ] Panini      , 05.50 EUR, Kebab
+[ ] Panini      , 05.50 EUR, Chicken
+[ ] Panini      , 05.50 EUR, Kefta
+[ ] Panini      , 05.50 EUR, Steak Hache
+[ ] Tex Mex     , 02.50 EUR, 2 Tenders
+[ ] Tex Mex     , 04.50 EUR, 4 Tenders
+[ ] Tex Mex     , 06.50 EUR, 6 Tenders
+[ ] Tex Mex     , 05.00 EUR, 6 Wings
+[ ] Tex Mex     , 07.00 EUR, 9 Wings
+[ ] Tex Mex     , 09.00 EUR, 12 Wings
+[ ] Tex Mex     , 05.00 EUR, 6 Nuggets
+[ ] Tex Mex     , 07.00 EUR, 9 Nuggets
+[ ] Tex Mex     , 09.00 EUR, 12 Nuggets
+[ ] Dessert     , 01.50 EUR, Donuts Chocolat
+[ ] Dessert     , 01.50 EUR, Donuts Vanille
+[ ] Dessert     , 01.50 EUR, Donuts Fraise
+[ ] Dessert     , 01.90 EUR, Cookies Chocolat
+[ ] Dessert     , 01.90 EUR, Cookies Trois Chocolats
+[ ] Dessert     , 02.50 EUR, Muffin Caramel
+[ ] Dessert     , 02.50 EUR, Eclair Chocolat
+[ ] Dessert     , 03.00 EUR, Tarte Au Citron Meringuée
+[ ] Dessert     , 02.50 EUR, Tarte Au Chocolat Noisettes
+[ ] Dessert     , 02.50 EUR, Mille Feuille
+[ ] Dessert     , 02.90 EUR, Tarte Aux Daims
+[ ] Dessert     , 03.00 EUR, Tiramisu Caramel Speculoos
+[ ] Dessert     , 03.00 EUR, Tiramisu Chocolat Speculoos
+[ ] Dessert     , 03.00 EUR, Tiramisu Daim
+[x] Dessert     , 00.00 EUR, Muffin Nutella
+[ ] Glace       , 02.90 EUR, Batonnet Oasis
+[ ] Glace       , 02.90 EUR, Batonnet Daim
+[ ] Glace       , 02.90 EUR, Batonnet Oreo
+[ ] Glace       , 02.90 EUR, Batonnet Milka
+[ ] Glace       , 02.90 EUR, Batonnet Toblerone
+[ ] Glace       , 02.90 EUR, Batonnet Daim
+[ ] Glace       , 03.00 EUR, Cornet Toblerone
+[ ] Glace       , 03.00 EUR, Cornet Milka
+[ ] Glace       , 03.00 EUR, Cornet Oreo
+[ ] Smoothie    , 04.50 EUR, Ultra Violet
+[ ] Smoothie    , 04.50 EUR, Tropical
+[ ] Smoothie    , 04.50 EUR, Fresh
+[ ] Smoothie    , 04.50 EUR, Coca Mango
+[ ] Smoothie    , 04.50 EUR, Exotic
+[ ] Smoothie    , 04.50 EUR, Melon Pop
+[ ] Boisson     , 01.80 EUR, Coca Cola 33CL
+[ ] Boisson     , 01.80 EUR, Coca Cola Zero 33CL
+[ ] Boisson     , 01.80 EUR, Coca Cola Cherry 33CL
+[ ] Boisson     , 01.80 EUR, Fanta Orange 33CL
+[ ] Boisson     , 01.80 EUR, Fanta Citron 33CL
+[ ] Boisson     , 01.80 EUR, Orangina 33CL
+[ ] Boisson     , 01.80 EUR, Ice Tea Peche 33CL
+[ ] Boisson     , 01.80 EUR, Oasis Tropical 33CL
+[ ] Boisson     , 01.80 EUR, Oasis Pomme Poire 33CL
+[ ] Boisson     , 01.80 EUR, Oasis Fraise Framboise 33CL
+[ ] Boisson     , 01.80 EUR, Schweppes POMME 33CL
+[ ] Boisson     , 01.80 EUR, Scheppes Agrumes 33CL
+[ ] Boisson     , 01.80 EUR, Schweppes Lemon 33CL
+[ ] Boisson     , 01.80 EUR, Sprite 33CL
+[ ] Boisson     , 01.80 EUR, Tropico 33CL
+[ ] Boisson     , 01.80 EUR, Minute Maid Orange 33CL
+[ ] Boisson     , 01.80 EUR, Fuze Tea The Glace Intense 33CL
+[ ] Boisson     , 01.80 EUR, Perrir 33CL
+[ ] Boisson     , 01.50 EUR, Capri Sun
+[ ] Boisson     , 01.20 EUR, Eau Cristaline 33CL
+[ ] Tacos       , 07.50 EUR, Kebab
+[ ] Tacos       , 07.50 EUR, Chicken
+[ ] Tacos       , 07.50 EUR, Tenders
+[ ] Tacos       , 07.50 EUR, Steak Hache
+[ ] Tacos       , 07.50 EUR, Kefta
+[ ] Tacos       , 07.50 EUR, Cordon Bleu

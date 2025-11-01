@@ -1,0 +1,147 @@
+/* Ensure it fills parent by default; overridden by inline style when ratio is set */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;              /* will be overridden to auto when ratio is provided */
+  background: hsl(var(--card));
+  border: var(--border-w) solid hsl(var(--border));
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+
+/* Slides & images must stretch to container */
+.slide { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.slide img { width: 100%; height: 100%; display: block; }
+
+/* Cover / Contain behaviors */
+.cover img { object-fit: cover; object-position: center; }
+.contain img { object-fit: contain; object-position: center; background: hsl(var(--surface)); }
+
+/* --- Arrow buttons: keep vertical centering even on :active from global .button --- */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  line-height: 1;
+  opacity: 0.92;
+  box-shadow: var(--shadow-2);
+}
+
+/* Fix: when .button:active sets transform, re-apply centering here */
+.arrow:active,
+.arrow:focus-visible,
+.arrow:hover {
+  transform: translateY(-50%); /* preserve centering */
+}
+
+/* Optional subtle press effect without losing centering */
+.arrow:active { filter: brightness(0.96); }
+
+.prev { left: var(--space-5); }
+.next { right: var(--space-5); }
+
+/* Radius options (mapped to globals) */
+.roundS  { border-radius: var(--radius-s); }
+.roundM  { border-radius: var(--radius-m); }
+.roundL  { border-radius: var(--radius-l); }
+.roundXL { border-radius: var(--radius-xl); }
+.roundNone { border-radius: 0; }
+
+.viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.track {
+  --drag-x: 0px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  height: 100%;
+  transition: transform var(--dur-2) var(--ease);
+  touch-action: pan-y;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { transition: none; }
+}
+
+.caption {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-5);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: var(--radius-m);
+  background: hsl(var(--overlay) / 0.45);
+  color: hsl(0 0% 98%);
+  backdrop-filter: blur(4px) saturate(1.2);
+  box-shadow: var(--shadow-1);
+  max-width: min(60ch, 90%);
+}
+
+.captionTitle {
+  font-size: var(--fs-2);
+  line-height: var(--lh-tight);
+}
+
+.captionText {
+  font-size: var(--fs-1);
+  opacity: 0.95;
+}
+
+.prev { left: var(--space-5); }
+.next { right: var(--space-5); }
+
+/* Hide arrows on very small screens to let swipe do the work */
+@media (max-width: 480px) {
+  .arrow { display: none; }
+}
+
+/* Dots pagination */
+.dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--space-5);
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  background: hsl(var(--overlay) / 0.3);
+  border: var(--border-w) solid hsl(var(--border) / 0.5);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(4px);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: var(--border-w) solid hsl(0 0% 100% / 0.6);
+  background: hsl(0 0% 100% / 0.35);
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform var(--dur-1) var(--ease), background var(--dur-1) var(--ease);
+}
+
+.dot:hover { transform: scale(1.12); }
+
+.dotActive {
+  background: hsl(var(--accent));
+  border-color: hsl(var(--accent));
+}
+
+/* Optional: fade caption + controls when not hovering on desktops */
+@media (hover: hover) and (pointer: fine) {
+  .carousel:not(:hover) .caption { opacity: 0.92; }
+  .carousel:not(:hover) .arrow   { opacity: 0.8; }
+}

@@ -1,0 +1,233 @@
+/* ================================
+   MenusSections.module.css
+   Two-pane desktop, single-column mobile
+   ================================ */
+
+/* Layout shell: mobile = single column; desktop = side panel + content */
+.shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* side panel hidden on mobile */
+.sidePanel {
+  display: none;
+}
+
+/* mobile top bar visible on mobile */
+.tabsBarMobile {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: hsl(var(--card) / .88);
+  backdrop-filter: saturate(1.1) blur(8px);
+  border-bottom: var(--border-w) solid hsl(var(--border));
+  padding-block: var(--space-3);
+}
+
+.tabsInner {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.mobileSearch {
+  display: block;
+}
+
+/* content col on mobile */
+.contentCol {
+  min-width: 0;
+}
+
+/* Sections column */
+.sectionsCol {
+  display: grid;
+  gap: var(--space-7);
+}
+
+/* ===== Desktop breakpoint ===== */
+@media (min-width: 1024px) {
+  .shell {
+    /* Left fixed width, right fluid */
+    grid-template-columns: 360px 1fr;
+    gap: var(--space-8);
+    min-height: 360px;
+    height: 90vh;
+    overflow: hidden;          /* no shell scrolling */
+    padding: var(--space-6);
+  }
+
+  /* LEFT PANEL: independent scroll */
+  .sidePanel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    height: 100%;
+    overflow: auto;            /* its own scrollbar */
+    background: hsl(var(--surface));
+    border: var(--border-w) solid hsl(var(--border));
+    border-radius: var(--radius-l);
+  }
+
+  .sidePanel::-webkit-scrollbar { width: 10px; }
+  .sidePanel::-webkit-scrollbar-thumb {
+    background: hsl(var(--subtle));
+    border-radius: 8px;
+  }
+
+  .sidePanel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+
+  /* hide mobile bar on desktop */
+  .tabsBarMobile {
+    display: none;
+  }
+
+  /* RIGHT COLUMN: independent scroll, visually hidden scrollbar */
+  .contentCol {
+    min-width: 0;
+    height: 100%;
+    overflow: auto;            /* its own scrollbar */
+    padding-block: var(--space-6);
+
+    /* hide scrollbar visually, keep scrollability */
+    scrollbar-width: none;          /* Firefox */
+    -ms-overflow-style: none;       /* IE/Edge legacy */
+  }
+  .contentCol::-webkit-scrollbar { display: none; }
+
+  /* sections column spacing stays inside the scroll area */
+  .sectionsCol {
+    gap: var(--space-8);
+  }
+}
+
+/* Search in side panel */
+.searchWrap {
+  padding-inline: var(--space-6);
+}
+
+/* Vertical tabs */
+.vertTabs {
+  overflow: hidden;
+}
+
+.vertList {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.vertList::-webkit-scrollbar { width: 8px; }
+.vertList::-webkit-scrollbar-thumb {
+  background: hsl(var(--subtle));
+  border-radius: 8px;
+}
+.vertList::-webkit-scrollbar-track { background: transparent; }
+
+.vertTab {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: 10px 12px;
+  background: hsl(var(--surface-2));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease);
+  text-align: left;
+}
+.vertTab:hover {
+  background: hsl(var(--surface-3));
+}
+.vertTabActive {
+  background: hsl(var(--accent) / .16);
+  border-color: hsl(var(--accent));
+}
+.vertTabTitle {
+  font-weight: 600;
+}
+.vertTabCount {
+  font-size: var(--fs-0);
+  color: hsl(var(--muted));
+}
+
+/* Mobile carousel tabs */
+.tabItem { display: inline-flex; }
+.tab {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: var(--border-w) solid hsl(var(--border));
+  background: hsl(var(--surface-2));
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease);
+}
+.tab:hover { background: hsl(var(--surface-3)); }
+.tabActive {
+  background: hsl(var(--accent) / .18);
+  border-color: hsl(var(--accent));
+  color: hsl(var(--brand));
+}
+
+/* Sections and cards */
+.section { scroll-margin-top: 80px; } /* play nice with sticky bars */
+.sectionHeader { margin-bottom: var(--space-5); }
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.cardTop img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.ph {
+  width: 100%;
+  height: 180px;
+  background: hsl(var(--subtle));
+}
+
+.cardBody {
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: 700;
+  color: hsl(var(--accent));
+}

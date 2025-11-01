@@ -1,0 +1,16 @@
+.dialog-overlay { position: fixed; inset: 0; background: hsl(var(--overlay)/.4); z-index: var(--z-modal); }
+.dialog-panel {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  width: min(580px, 92vw);
+  background: hsl(var(--surface));
+  border: var(--border-w) solid hsl(var(--border));
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-4);
+  padding: var(--space-5);
+  z-index: calc(var(--z-modal) + 1);
+}
+.hidden-sm { display: none; }
+@media (min-width: 640px){ .hidden-sm { display: block; width:160px; height:112px; background:hsl(var(--surface-3)); border-radius: var(--radius-m); } }
+
+.btn-primary { background:hsl(var(--brand)); color:#fff; border: var(--border-w) solid hsl(var(--brand)); border-radius: var(--radius-m); padding: var(--btn-pad-y) var(--btn-pad-x); }
+.btn-ghost   { background:#fff; border: var(--border-w) solid hsl(var(--border)); border-radius: var(--radius-m); padding: var(--btn-pad-y) var(--btn-pad-x); }
